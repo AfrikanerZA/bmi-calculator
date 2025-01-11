@@ -1,0 +1,40 @@
+label {
+    color: #F7F0F0;
+    font-weight: 600;
+    font-size: 22px;
+}
+
+input {
+    border-radius: 3px;
+    border: 1px solid #000957;
+}
+
+input,
+input::placeholder {
+    text-align: end;
+    font-weight: 600;
+    font-family: "Quicksand", serif;
+    width: 130px;
+}
+
+/* Remove input number type arrows */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+#inputContainer {
+    height: 300px;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.inputStyle {
+    display: flex;
+    justify-content: space-between;
+    margin: 0px 25px 0px 25px;
+}
+

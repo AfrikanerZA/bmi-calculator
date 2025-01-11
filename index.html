@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="css/page.css">
+        <link rel="stylesheet" href="css/output.css">
+        <link rel="stylesheet" href="css/input.css">
+        <link rel="stylesheet" href="css/buttons.css">
+        <link rel="stylesheet" href="css/unit.css">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+
+        <title>BMI Calculator</title>
+    </head>
+    <body>
+        <section id="layout">
+            <main id="calDesign">
+                <div id="outputLayout">
+                    <div id="outputDisplay">
+                        <span id="bmiResults">0.00</span>
+                    </div>
+                </div>
+
+                <div id="inputContainer">
+                    <div class="inputStyle">
+                        <label for="nameInput">Name:</label>
+                        <input 
+                            type="text" 
+                            placeholder="James" 
+                            id="nameInput"
+                            required
+                        />
+                    </div>
+
+                    <div class="inputStyle">
+                        <label id="heightInputStyle" for="heightInput">Height(cm):</label>
+                        <input 
+                            type="number"
+                            placeholder="165" 
+                            id="heightInput"
+                            step="any"
+                            required
+                        />
+                    </div>
+
+                    <div class="inputStyle">
+                        <label id="weightInputStyle" for="weightInput">Weight(kg):</label>
+                        <input 
+                            type="number" 
+                            placeholder="62"    
+                            id="weightInput"
+                            step="any"
+                            required
+                        />
+                    </div>
+                
+                <div id="buttonLayout">
+                    <button type="button" class="buttonStyle" id="clearButton" onclick="clearLog()">clear</button>
+                    <button type="button" class="buttonStyle" id="submitButton" onclick="calBMI()">submit</button>
+                </div>
+            </div>
+
+                <div id="unitLayout">
+                    <input 
+                        class="radioStyle" 
+                        id="metricUnit" 
+                        type="radio" 
+                        name="unitToggle"
+                        checked
+                    />
+                    <label for="metricUnit" style="margin-right: 30px;">Metric</label>
+
+                    <input 
+                        class="radioStyle" 
+                        id="imperialUnit" 
+                        type="radio" 
+                        style="margin-left: 30px;" 
+                        name="unitToggle"
+                        />
+                    <label for="imperialUnit">Imperial</label>
+                </div>
+            </main>
+            
+            <main id="outputMessage">
+                <div id="messageLayout">
+                    <span id="bmiResultsMessage">Normal</span>
+                </div>
+            </main>
+        </section>
+
+        <script src="index.js"></script>
+    </body>
+</html>

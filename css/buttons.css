@@ -1,0 +1,30 @@
+#buttonLayout {
+    height: 60px;
+    width: auto;
+    padding-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+}
+
+.buttonStyle {
+    cursor: pointer;
+    height: 35px;
+    width: 90px;
+    border-radius: 30px;
+    border: none;
+    font-weight: 700;
+    font-family: "Quicksand", serif;
+    font-size: 16px;
+}
+
+#clearButton {
+    margin-right: 20px;
+    background-color: #F4F1BB;
+}
+
+#submitButton {
+    margin-left: 20px;
+    background-color: #ED6A5A;
+    color: #F7F0F0;
+}

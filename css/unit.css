@@ -1,0 +1,28 @@
+input[type="radio"] {
+    appearance: none;
+    background-color: #F7F0F0;
+    border: 1px solid #000957;
+    width: 14px;
+    height: 14px;
+    border-radius: 100%;
+}
+
+input[type="radio"]:checked {
+    background-color: #81F495;
+}
+
+#unitLayout {
+    height: auto;
+    width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.radioStyle {
+    cursor: pointer;
+    width: min-content;
+}
+
+
+
