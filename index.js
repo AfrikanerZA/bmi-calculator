@@ -64,13 +64,19 @@ function calBMI() {
     userLog.bmiResults = outputResults.toFixed(2);
     console.log(userLog)
 
-    bmiResults.innerHTML = outputResults.toFixed(2);
+    if (userLog.bmiResults === "NaN") {
+        bmiResults.innerHTML = "0.00";
+    } else {
+        bmiResults.innerHTML = outputResults.toFixed(2);
+    }
     
     bmiClassif();
 }
 
 function bmiClassif() {
-    if (outputResults <= 18.5) {
+    if (userLog.bmiResults === "NaN") {
+        bmiResultsMessage.innerHTML = "Normal";
+    } else if (outputResults <= 18.5) {
         bmiResultsMessage.innerHTML = "Underweight";
     } else if (outputResults <= 24.9) {
         bmiResultsMessage.innerHTML = "Normal";
