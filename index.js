@@ -9,18 +9,24 @@ let weightInput = document.getElementById("weightInput");
 
 let outputResults = 0;
 
-const date = new Date();
-let day = date.getDate();
-let month = date.getMonth() + 1;
-let year = date.getFullYear();
-let currentDate = `${day}-${month}-${year}`;
+function todayDate(){
+    const date = new Date();
+    let day = date.getDate();
+    let month = date.getMonth() + 1;
+    let year = date.getFullYear();
+    let currentDate = `${day}-${month}-${year}`;
+    return currentDate;
+}
+
 
 let userLog = {
-    date : currentDate,
+    date : todayDate(),
     unit : "",
     name : "",
     bmiResults : "",
-}
+};
+
+let userLogArray = [];
 
 unitToggle = addEventListener("click", function(){
     let heightInputStyle = document.getElementById("heightInputStyle");
@@ -31,13 +37,11 @@ unitToggle = addEventListener("click", function(){
         weightInputStyle.innerHTML = "Weight(kg):";
         heightInput.placeholder = "165";
         weightInput.placeholder = "62";
-        console.log("Changed to metric unit.");
     } else if (imperialUnit.checked === true) {
         heightInputStyle.innerHTML = "Height(in):";
         weightInputStyle.innerHTML = "Weight(lbs):";
         heightInput.placeholder = "64.96";
         weightInput.placeholder = "136.69";
-        console.log("Changed to imperial unit.");
     }
 })
 
@@ -62,10 +66,15 @@ function calBMI() {
 
     userLog.name = nameInputValue;
     userLog.bmiResults = outputResults.toFixed(2);
-    console.log(userLog)
+    
+    userLogArray.push({...userLog});
+
+    console.log(userLog);
+    console.log(userLogArray);
 
     if (userLog.bmiResults === "NaN") {
         bmiResults.innerHTML = "0.00";
+        userLogArray.splice(userLogArray.length - 1, 1);
     } else {
         bmiResults.innerHTML = outputResults.toFixed(2);
     }
@@ -73,7 +82,7 @@ function calBMI() {
     bmiClassif();
 }
 
-function bmiClassif() {
+function bmiClassif(){
     if (userLog.bmiResults === "NaN") {
         bmiResultsMessage.innerHTML = "Normal";
     } else if (outputResults <= 18.5) {
@@ -105,3 +114,4 @@ function checkEmptyFields(){
         alert ("Please enter your weight")
     }
 }
+
