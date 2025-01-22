@@ -80,6 +80,7 @@ function calBMI() {
     }
     
     bmiClassif();
+    outputUserDetails();
 }
 
 function bmiClassif(){
@@ -117,25 +118,35 @@ function checkEmptyFields(){
 
 
 
+let alignUserInfo = document.getElementById("alignUserInfo");
 let showHiddenLog = true;
 
 function displayUserLog(){
     let userLogBtn = document.getElementById("userLogBtn");
-    let calDesign = document.getElementById("calDesign");
     let userLogDesign = document.getElementById("userLogDesign");
     let userLogLayout = document.getElementById("userLogLayout");
 
     if (showHiddenLog === true) {
-        //userLogDesign.style.display = "block";
         userLogDesign.classList.add("smoothDisplay");
         userLogLayout.classList.add("moveBtn");
         userLogBtn.classList.add("moveUserLogBtn");
         showHiddenLog = false;
     } else {
-        calDesign.style.zIndex = 1;
         userLogDesign.classList.remove("smoothDisplay");
         userLogLayout.classList.remove("moveBtn");
         userLogBtn.classList.remove("moveUserLogBtn");
         showHiddenLog = true;
     }
+}
+
+function outputUserDetails(){
+    let span = document.createElement("span");
+
+    span.appendChild(document.createTextNode(`Name: ${userLog.name}`));
+    span.appendChild(document.createElement("br"));
+    span.appendChild(document.createTextNode(`Date: ${userLog.date}`));
+    span.appendChild(document.createElement("br"));
+    span.appendChild(document.createTextNode(`BMI: ${userLog.bmiResults}`));
+
+    alignUserInfo.appendChild(span);
 }
