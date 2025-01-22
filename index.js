@@ -126,22 +126,16 @@ function displayUserLog(){
     let userLogLayout = document.getElementById("userLogLayout");
 
     if (showHiddenLog === true) {
-        calDesign.style.zIndex = 0;
-        userLogDesign.style.display = "block";
-        userLogLayout.style.width = "924px";
-        userLogBtn.style.borderTopLeftRadius = "0px";
-        userLogBtn.style.borderBottomLeftRadius = "0px";
-        userLogBtn.style.borderTopRightRadius = "10px";
-        userLogBtn.style.borderBottomRightRadius = "10px";
+        //userLogDesign.style.display = "block";
+        userLogDesign.classList.add("smoothDisplay");
+        userLogLayout.classList.add("moveBtn");
+        userLogBtn.classList.add("moveUserLogBtn");
         showHiddenLog = false;
     } else {
         calDesign.style.zIndex = 1;
-        userLogDesign.style.display = "none";
-        userLogLayout.style.width = "825px";
-        userLogBtn.style.borderTopLeftRadius = "10px";
-        userLogBtn.style.borderBottomLeftRadius = "10px";
-        userLogBtn.style.borderTopRightRadius = "0px";
-        userLogBtn.style.borderBottomRightRadius = "0px";
+        userLogDesign.classList.remove("smoothDisplay");
+        userLogLayout.classList.remove("moveBtn");
+        userLogBtn.classList.remove("moveUserLogBtn");
         showHiddenLog = true;
     }
 }
