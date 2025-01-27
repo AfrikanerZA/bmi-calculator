@@ -79,7 +79,7 @@ function calBMI() {
     } else {
         bmiResults.innerHTML = outputResults.toFixed(2);
         outputUserDetails();
-        //clearInput();
+        clearInput();
     }
     
     bmiClassif();
