@@ -51,6 +51,7 @@
                             type="number"
                             placeholder="165" 
                             id="heightInput"
+                            class="invalidInput"
                             step="any"
                             required
                         />
@@ -62,13 +63,14 @@
                             type="number" 
                             placeholder="62"    
                             id="weightInput"
+                            class="invalidInput"
                             step="any"
                             required
                         />
                     </div>
                 
                 <div id="buttonLayout">
-                    <button type="button" class="buttonStyle" id="clearButton" onclick="clearLog()">clear</button>
+                    <button type="button" class="buttonStyle" id="clearButton" onclick="clearInput()">clear</button>
                     <button type="button" class="buttonStyle" id="submitButton" onclick="calBMI()">submit</button>
                 </div>
             </div>
@@ -101,6 +103,8 @@
             </main>
         </section>
 
+        <div id="bmiInfo">Underweight: less than 18.50; Normal: 18.50 - 24.90; Overweight: 25 - 29.90; Obesity: over 30</div>
+        
         <script src="index.js"></script>
     </body>
 </html>

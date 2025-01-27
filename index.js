@@ -18,13 +18,14 @@ function todayDate(){
     return currentDate;
 }
 
-
 let userLog = {
     date : todayDate(),
     unit : "",
     name : "",
     bmiResults : "",
 };
+
+
 
 let userLogArray = [];
 
@@ -77,10 +78,11 @@ function calBMI() {
         userLogArray.splice(userLogArray.length - 1, 1);
     } else {
         bmiResults.innerHTML = outputResults.toFixed(2);
+        outputUserDetails();
+        //clearInput();
     }
     
     bmiClassif();
-    outputUserDetails();
 }
 
 function bmiClassif(){
@@ -97,7 +99,7 @@ function bmiClassif(){
     }
 }
 
-function clearLog(){
+function clearInput(){
     nameInput.value = "";
     heightInput.value = "";
     weightInput.value = "";
@@ -130,11 +132,13 @@ function displayUserLog(){
         userLogDesign.classList.add("smoothDisplay");
         userLogLayout.classList.add("moveBtn");
         userLogBtn.classList.add("moveUserLogBtn");
+        alignUserInfo.style.fontSize = "14px";
         showHiddenLog = false;
     } else {
         userLogDesign.classList.remove("smoothDisplay");
         userLogLayout.classList.remove("moveBtn");
         userLogBtn.classList.remove("moveUserLogBtn");
+        alignUserInfo.style.fontSize = "0px";
         showHiddenLog = true;
     }
 }
@@ -142,11 +146,29 @@ function displayUserLog(){
 function outputUserDetails(){
     let span = document.createElement("span");
 
-    span.appendChild(document.createTextNode(`Name: ${userLog.name}`));
-    span.appendChild(document.createElement("br"));
-    span.appendChild(document.createTextNode(`Date: ${userLog.date}`));
-    span.appendChild(document.createElement("br"));
-    span.appendChild(document.createTextNode(`BMI: ${userLog.bmiResults}`));
+    if (userLogArray.length > 10) {
+        userLogArray.splice(userLogArray.length - 1, 1);
+        alert("User log is full. Please refresh/reload page.");
+    } else {
+        span.appendChild(document.createTextNode(`Name: ${userLog.name}`));
+        span.appendChild(document.createElement("br"));
+        span.appendChild(document.createTextNode(`Date: ${userLog.date}`));
+        span.appendChild(document.createElement("br"));
+        span.appendChild(document.createTextNode(`BMI: ${userLog.bmiResults}`));
 
-    alignUserInfo.appendChild(span);
+        alignUserInfo.appendChild(span);
+    }
+}
+
+
+
+let invalidInput = document.querySelectorAll(".invalidInput");
+const invalidSymbol = ["e", "+", "-"];
+
+for (let i = 0; i < invalidInput.length; i++) {
+    invalidInput[i].addEventListener("keydown", function(e) {
+        if (invalidSymbol.includes(e.key)) {
+          e.preventDefault();
+        }
+    });
 }
