@@ -67,3 +67,54 @@
     transition: 0.3s ease-out;
 }
 
+#userLogLayoutMobile {
+    display: none;
+}
+
+
+
+@media only screen and (max-width: 960px) {
+    #userLogLayout {
+        display: none;
+    }
+
+    #userLogBtn {
+        display: none;
+    }
+
+    #userLogLayoutMobile {
+        display: block;
+        width: 100%;
+    }
+
+    #userLogBtnMobile {
+        background-color: #EFB036;
+        font-weight: 600;
+        height: 50px;
+        text-align: center;
+        align-content: center;
+        transition: 0.5s ease-in-out;
+    }
+
+    #userLogBtnMobile.mobileUserLogBtn {
+        background-color: #F7F0F0;
+    }
+
+    #userLogDesign {
+        border-radius: 0;
+        transition: height 0.5s;
+        height: 0;
+        justify-content: center;
+        margin-top: 575px;
+    }
+
+    #userLogDesign.smoothDisplay {
+        width: 100%;
+        margin-left: 0;
+        height: 520px;
+    }
+
+    #alignUserInfo {
+        display: none;
+    }
+}

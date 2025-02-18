@@ -79,7 +79,7 @@ function calBMI() {
     } else {
         bmiResults.innerHTML = outputResults.toFixed(2);
         outputUserDetails();
-        clearInput();
+        clearAfterSubmit();
     }
     
     bmiClassif();
@@ -97,6 +97,13 @@ function bmiClassif(){
     } else {
         bmiResultsMessage.innerHTML = "Obesity";
     }
+}
+
+function clearAfterSubmit(){
+    nameInput.value = "";
+    heightInput.value = "";
+    weightInput.value = "";
+    console.log("All input cleared after submit.");
 }
 
 function clearInput(){
@@ -127,18 +134,23 @@ function displayUserLog(){
     let userLogBtn = document.getElementById("userLogBtn");
     let userLogDesign = document.getElementById("userLogDesign");
     let userLogLayout = document.getElementById("userLogLayout");
+    let userLogBtnMobile = document.getElementById("userLogBtnMobile");
 
     if (showHiddenLog === true) {
         userLogDesign.classList.add("smoothDisplay");
         userLogLayout.classList.add("moveBtn");
         userLogBtn.classList.add("moveUserLogBtn");
+        userLogBtnMobile.classList.add("mobileUserLogBtn");
         alignUserInfo.style.fontSize = "14px";
+        alignUserInfo.style.display = "grid";
         showHiddenLog = false;
     } else {
         userLogDesign.classList.remove("smoothDisplay");
         userLogLayout.classList.remove("moveBtn");
         userLogBtn.classList.remove("moveUserLogBtn");
+        userLogBtnMobile.classList.remove("mobileUserLogBtn");
         alignUserInfo.style.fontSize = "0px";
+        alignUserInfo.style.display = "none";
         showHiddenLog = true;
     }
 }
