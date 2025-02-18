@@ -117,11 +117,11 @@ function clearInput(){
 
 function checkEmptyFields(){
     if (nameInput.value === "") {
-        alert ("Please enter your name");
+        swal({title: "Please enter your name", icon: "info"});
     } else if (heightInput.value === "") {
-        alert ("Please enter your height");
+        swal({title: "Please enter your height", icon: "info"});
     } else if (weightInput.value === "") {
-        alert ("Please enter your weight")
+        swal({title: "Please enter your weight", icon: "info"});
     }
 }
 
@@ -160,7 +160,7 @@ function outputUserDetails(){
 
     if (userLogArray.length > 10) {
         userLogArray.splice(userLogArray.length - 1, 1);
-        alert("User log is full. Please refresh/reload page.");
+        swal("User log is full", "Please refresh/reload page", "warning");
     } else {
         span.appendChild(document.createTextNode(`Name: ${userLog.name}`));
         span.appendChild(document.createElement("br"));
